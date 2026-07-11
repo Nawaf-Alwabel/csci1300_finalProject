@@ -1,33 +1,22 @@
-#include "fisher.h"
+#ifndef FISHER_H
+#define FISHER_H
 
-#include <iostream>
+#include "Character.h"
 
-Fisher::Fisher() : Character()
+class Fisher : public Character
 {
-    fishing_bonus = 10;
-}
+private:
+    int fishing_bonus;
 
-Fisher::Fisher(std::string character_name, int starting_money,
-               int starting_reputation, int bonus)
-    : Character(character_name, starting_money, starting_reputation)
-{
-    fishing_bonus = bonus;
-}
+public:
+    Fisher();
+    Fisher(std::string character_name, int starting_money,
+           int starting_reputation, int bonus);
 
-int Fisher::getFishingBonus() const
-{
-    return fishing_bonus;
-}
+    int getFishingBonus() const;
 
-void Fisher::fish()
-{
-    std::cout << getName() << " goes fishing with a +"
-              << fishing_bonus << "% fishing bonus." << std::endl;
+    void fish();
+    void showRole() const override;
+};
 
-    std::cout << "Fishing rewards will be completed later." << std::endl;
-}
-
-void Fisher::showRole() const
-{
-    std::cout << "Role: Fisher" << std::endl;
-}
+#endif
