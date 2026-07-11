@@ -1,4 +1,4 @@
-#include "Fisher.h"
+#include "fisher.h"
 
 #include <iostream>
 
