@@ -1,33 +1,25 @@
 #include "Fisher.h"
-
-#include <iostream>
+#include <cstdlib>
 
 Fisher::Fisher() : Character()
 {
-    fishing_bonus = 10;
 }
 
-Fisher::Fisher(std::string character_name, int starting_money,
-               int starting_reputation, int bonus)
-    : Character(character_name, starting_money, starting_reputation)
+Fisher::Fisher(string characterName, string characterLocation)
+    : Character(characterName, characterLocation)
 {
-    fishing_bonus = bonus;
 }
 
-int Fisher::getFishingBonus() const
+Item Fisher::fish()
 {
-    return fishing_bonus;
-}
+    int chance = rand() % 2;
 
-void Fisher::fish()
-{
-    std::cout << getName() << " goes fishing with a +"
-              << fishing_bonus << "% fishing bonus." << std::endl;
-
-    std::cout << "Fishing rewards will be completed later." << std::endl;
-}
-
-void Fisher::showRole() const
-{
-    std::cout << "Role: Fisher" << std::endl;
+    if (chance == 0)
+    {
+        return Item("Small Fish", "Fish", 20);
+    }
+    else
+    {
+        return Item("Large Fish", "Fish", 40);
+    }
 }
