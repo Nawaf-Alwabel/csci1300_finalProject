@@ -2,21 +2,15 @@
 #define FISHER_H
 
 #include "Character.h"
+#include "Item.h"
 
 class Fisher : public Character
 {
-private:
-    int fishing_bonus;
-
 public:
     Fisher();
-    Fisher(std::string character_name, int starting_money,
-           int starting_reputation, int bonus);
+    Fisher(string characterName, string characterLocation);
 
-    int getFishingBonus() const;
-
-    void fish();
-    void showRole() const override;
+    Item fish();
 };
 
 #endif
