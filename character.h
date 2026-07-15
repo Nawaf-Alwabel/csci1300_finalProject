@@ -2,28 +2,22 @@
 #define CHARACTER_H
 
 #include <string>
+using namespace std;
 
 class Character
 {
-private:
-    std::string name;
-    int money;
-    int reputation;
+protected:
+    string name;
+    string location;
 
 public:
     Character();
-    Character(std::string character_name, int starting_money,
-              int starting_reputation);
+    Character(string characterName, string characterLocation);
 
-    std::string getName() const;
-    int getMoney() const;
-    int getReputation() const;
+    string getName();
+    string getLocation();
 
-    void setName(std::string character_name);
-    void addMoney(int amount);
-    void addReputation(int amount);
-
-    virtual void showRole() const;
+    void talk();
 };
 
 #endif
