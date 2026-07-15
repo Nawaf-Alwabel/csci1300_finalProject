@@ -22,6 +22,30 @@ void Game::displayMainMenu() const
     std::cout << "Enter choice: ";
 }
 
+void Game::loadDialogue()
+{
+    ifstream inputFile("dialogue.txt");
+
+    if (inputFile.fail())
+    {
+        cout << "Could not open dialogue.txt" << endl;
+
+        for (int i = 0; i < 5; i++)
+        {
+            dialogue[i] = "";
+        }
+
+        return;
+    }
+
+    for (int i = 0; i < 5; i++)
+    {
+        getline(inputFile, dialogue[i]);
+    }
+
+    inputFile.close();
+}
+
 void Game::displayStatus() const
 {
     std::cout << "\n--- Character Status ---" << std::endl;
