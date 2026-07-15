@@ -1,63 +1,30 @@
 #include "Character.h"
-
 #include <iostream>
+using namespace std;
 
 Character::Character()
 {
-    name = "Player";
-    money = 0;
-    reputation = 0;
+    name = "";
+    location = "";
 }
 
-Character::Character(std::string character_name, int starting_money,
-                     int starting_reputation)
+Character::Character(string characterName, string characterLocation)
 {
-    name = character_name;
-    money = starting_money;
-    reputation = starting_reputation;
+    name = characterName;
+    location = characterLocation;
 }
 
-std::string Character::getName() const
+string Character::getName()
 {
     return name;
 }
 
-int Character::getMoney() const
+string Character::getLocation()
 {
-    return money;
+    return location;
 }
 
-int Character::getReputation() const
+void Character::talk()
 {
-    return reputation;
-}
-
-void Character::setName(std::string character_name)
-{
-    name = character_name;
-}
-
-void Character::addMoney(int amount)
-{
-    money += amount;
-
-    if (money < 0)
-    {
-        money = 0;
-    }
-}
-
-void Character::addReputation(int amount)
-{
-    reputation += amount;
-
-    if (reputation < 0)
-    {
-        reputation = 0;
-    }
-}
-
-void Character::showRole() const
-{
-    std::cout << "Role: General character" << std::endl;
+    cout << "";
 }
