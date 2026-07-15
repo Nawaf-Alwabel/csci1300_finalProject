@@ -1,0 +1,1 @@
+NOTE: dialouge unfinished. the code to print the dialouge is written but the dialouge itself is still being written.
