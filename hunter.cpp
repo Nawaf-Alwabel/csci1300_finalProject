@@ -1,33 +1,25 @@
 #include "Hunter.h"
-
-#include <iostream>
+#include <cstdlib>
 
 Hunter::Hunter() : Character()
 {
-    hunting_bonus = 10;
 }
 
-Hunter::Hunter(std::string character_name, int starting_money,
-               int starting_reputation, int bonus)
-    : Character(character_name, starting_money, starting_reputation)
+Hunter::Hunter(string characterName, string characterLocation)
+    : Character(characterName, characterLocation)
 {
-    hunting_bonus = bonus;
 }
 
-int Hunter::getHuntingBonus() const
+Item Hunter::hunt()
 {
-    return hunting_bonus;
-}
+    int chance = rand() % 2;
 
-void Hunter::hunt()
-{
-    std::cout << getName() << " goes hunting with a +"
-              << hunting_bonus << "% hunting bonus." << std::endl;
-
-    std::cout << "Hunting rewards will be completed later." << std::endl;
-}
-
-void Hunter::showRole() const
-{
-    std::cout << "Role: Hunter" << std::endl;
+    if (chance == 0)
+    {
+        return Item("Rabbit Hide", "Hunting", 25);
+    }
+    else
+    {
+        return Item("Deer Hide", "Hunting", 50);
+    }
 }
